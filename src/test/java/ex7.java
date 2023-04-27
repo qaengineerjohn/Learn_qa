@@ -9,6 +9,7 @@ public class ex7 {
     public void ex7() {
 
         String URL = "https://playground.learnqa.ru/api/long_redirect";
+        int countRedirect = 0;
 
         do {
             Response response = given()
@@ -28,9 +29,13 @@ public class ex7 {
             } else {
                 // Получаем URL для редиректа из нужного заголовка
                 URL = response.getHeader("Location");
+                countRedirect++;
+
                 System.out.println(statusCode);
                 System.out.println(response.getHeader("Location"));
             }
         } while (URL != null);
+
+        System.out.println("Number of redirects: " + countRedirect);
     }
 }
