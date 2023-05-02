@@ -13,7 +13,7 @@ public class ex9 {
     public void ex9() {
 
         List<String> passwordsList = Arrays.asList(
-                "password", "123456", "12345678", "qwerty", "abc123", "monkey", "123456789", "1234567", "letmein", "trustno1", "iloveyou", "dragon", "baseball", "adobe123[a]", "123123", "welcome", "admin", "1234567890", "solo", "master", "sunshine", "photoshop[a]", "ashley", "mustang", "bailey", "passw0rd", "shadow", "121212", "football", "michael", "654321", "jesus", "superman", "princess", "696969", "qazwsx", "ninja", "azerty", "loveme", "password1", "000000", "starwars"
+                "password", "123456", "12345678", "qwerty", "abc123", "monkey", "123456789", "1234567", "letmein", "trustno1", "iloveyou", "dragon", "baseball", "adobe123", "123123", "welcome", "admin", "1234567890", "solo", "master", "sunshine", "photoshop[a]", "ashley", "mustang", "bailey", "passw0rd", "shadow", "121212", "football", "michael", "654321", "jesus", "superman", "princess", "696969", "qazwsx", "ninja", "azerty", "loveme", "password1", "000000", "starwars"
         );
 
         for (String password : passwordsList) {
@@ -35,7 +35,7 @@ public class ex9 {
 
 
             Map<String, String> cookiesData = new HashMap<>();
-            data.put("auth_cookie", cookies);
+            cookiesData.put("auth_cookie", cookies);
 
             Response responseStatus = RestAssured
                     .given()
@@ -44,8 +44,9 @@ public class ex9 {
                     .when()
                     .post("https://playground.learnqa.ru/ajax/api/check_auth_cookie");
 
-            if (responseStatus.getBody().asString().equals("You are authorized")) {
+            if (responseStatus.body().asString().equals("You are authorized")) {
                 System.out.println("Found correct password: " + password);
+                System.out.println("You are authorized");
                 break;
             }else{
                 System.out.println("Not correct password: " + password);
