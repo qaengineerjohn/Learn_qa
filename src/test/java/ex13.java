@@ -35,31 +35,31 @@ public class ex13 {
         String device = response.jsonPath().getString("device");
 
 
-        if (userAgent.equals("Mozilla/5.0 (Linux; U; Android 4.0.2; en-us; Galaxy Nexus Build/ICL53F) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.3")) {
+        if (userAgent.equals(user_agent1)) {
             System.out.println("1");
             assertEquals("Mobile", platform, "Platform value is incorrect");
             assertEquals("No", browser, "Browser value is incorrect");
             assertEquals("Android", device, "Device value is incorrect");
 
-        } else if (userAgent.equals("Mozilla/5.0 (iPad; CPU OS 13_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/91.0.4472.77 Mobile/15E148 Safari/604.1")) {
+        } else if (userAgent.equals(user_agent2)) {
             System.out.println("2");
             assertEquals("Mobile", platform, "Platform value is incorrect");
             assertEquals("Chrome", browser, "Browser value is incorrect");
             assertEquals("Android", device, "Device value is incorrect");
 
-        } else if (userAgent.equals("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)")) {
+        } else if (userAgent.equals(user_agent3)) {
             System.out.println("3");
             assertEquals("Googlebot", platform, "Platform value is incorrect");
             assertEquals("Unknown", browser, "Browser value is incorrect");
             assertEquals("Unknown", device, "Device value is incorrect");
 
-        } else if (userAgent.equals("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.100.0")) {
+        } else if (userAgent.equals(user_agent4)) {
             System.out.println("4");
             assertEquals("Web", platform, "Platform value is incorrect");
             assertEquals("Chrome", browser, "Browser value is incorrect");
             assertEquals("No", device, "Device value is incorrect");
 
-        } else if (userAgent.equals("Mozilla/5.0 (iPad; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1")) {
+        } else if (userAgent.equals(user_agent5)) {
             System.out.println("5");
             assertEquals("Mobile", platform, "Platform value is incorrect");
             assertEquals("No", browser, "Browser value is incorrect");
