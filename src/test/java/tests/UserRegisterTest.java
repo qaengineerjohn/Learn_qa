@@ -74,7 +74,7 @@ public class UserRegisterTest extends BaseTestCase {
 
     //  - Создание пользователя без указания одного из полей - с помощью @ParameterizedTest необходимо проверить, что отсутствие любого параметра не дает зарегистрировать пользователя
     @ParameterizedTest
-    @ValueSource(strings = {"firstName", "lastName", "email", "password"})
+    @ValueSource(strings = {"email","password","username","firstName","lastName"})
     public void testCreateUserWithoutField(String field){
 
         Map<String,String> userData = DataGenerator.getRegistrationData();
