@@ -1,20 +1,27 @@
 package tests;
 
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import lib.Assertions;
 import lib.BaseTestCase;
 import lib.DataGenerator;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Epic("Edit cases")
+@Feature("Editing")
 public class UserEditTest extends BaseTestCase {
 
     @Test
-    public void testEdit() {
+    @Description("Generate user, login, edit and get")
+    @DisplayName("Positive test for edit")
+    @Severity(value = SeverityLevel.CRITICAL)
+    public void testEditUser() {
         //generate user
         Map<String, String> userData = DataGenerator.getRegistrationData();
 
@@ -64,6 +71,5 @@ public class UserEditTest extends BaseTestCase {
         System.out.println(responseUserData.asString());
 
         Assertions.assertJsonByName(responseUserData,"firstName", newName);
-
     }
 }//end class
