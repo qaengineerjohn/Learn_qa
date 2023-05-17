@@ -1,12 +1,13 @@
+package hometasks;
+
 import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
+import lib.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class ex12 {
 
@@ -19,6 +20,7 @@ public class ex12 {
                 .andReturn();
 
         Headers responseHeaders = response.headers();
-        assertEquals("application/json", responseHeaders.getValue("Content-Type"), "Content-Type header value is incorrect");
+
+        assertEquals("Some secret value", responseHeaders.getValue("x-secret-homework-header"), "x-secret-homework-header header value is incorrect");
     }
 }
